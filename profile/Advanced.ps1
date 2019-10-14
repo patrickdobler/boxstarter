@@ -390,7 +390,6 @@ Set-DefaultOption 'Boxstarter::Advanced::Remove::microsoft.windowscommunications
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.WindowsFeedbackHub'             'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.WindowsMaps'                    'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.WindowsPhone'                   'true'
-Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.Windows.Photos'                 'false'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.WindowsReadingList'             'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.Microsoft.WindowsScan'          'false'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.WindowsSoundRecorder'           'true'
