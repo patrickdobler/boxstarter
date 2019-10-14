@@ -20,11 +20,11 @@ Param (
 
 #--- [Declarations] ---------------------------------------------------------------------------------------------------
 # Script infos
-$global:sVersion = '1.0'
+$global:sVersion = '1.2'
 $global:sName = "boxstarter"
 # Script Path
 if([String]::IsNullOrEmpty($sRoot)) {
-    $global:sRoot = 'https://raw.githubusercontent.com/gennesseaux/boxstarter/master/'
+    $global:sRoot = 'https://raw.githubusercontent.com/patrickdobler/boxstarter/master/'
 }
 #----------------------------------------------------------------------------------------------------------------------
 
