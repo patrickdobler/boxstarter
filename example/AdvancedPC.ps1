@@ -12,7 +12,7 @@ $profiles = @(
     'Advanced'
     'Tools'
     'DevCore'
-    #'HyperV'
+    'HyperV'
 )
 
 # Define options
@@ -23,24 +23,13 @@ $options = @(
     'Boxstarter::End=true'
     'Boxstarter::End::WindowsUpdate=false'
 
-    'Boxstarter::Advanced::Privacy=true'
-    'Boxstarter::Advanced::Security=true'
-    'Boxstarter::Advanced::Service=true'
-    'Boxstarter::Advanced::UI=true'
-    'Boxstarter::Advanced::UI-Preferences=true'
-    'Boxstarter::Advanced::Application=true'
-    'Boxstarter::Advanced::RemoteDesktop=true'
-    'Boxstarter::Advanced::InternetExplorerESC=true'
-    'Boxstarter::Advanced::TaskbarOptions=true'
-    'Boxstarter::Advanced::CornerNavigationOptions=true'
-    'Boxstarter::Advanced::Windows-Update=true'
-    'Boxstarter::Advanced::Remove-Apps=true'
-    'Boxstarter::Advanced::Keyboard=true'
+    'Boxstarter::Advanced::Notebook::UI=false'
 
     'Boxstarter::DevCore::wget=false'
     'Boxstarter::DevCore::curl=false'
     'Boxstarter::DevCore::github-desktop=false'
     'Boxstarter::DevCore::sysinternals=false'
+    'Boxstarter::DevCore::gcm=false'
 
     'Boxstarter::Tools::office365proplus=false'
     'Boxstarter::Tools::7zip=false'
@@ -50,6 +39,8 @@ $options = @(
     'Boxstarter::Tools::greenshot=false'
     'Boxstarter::Tools::slack=false'
     'Boxstarter::Tools::vlc=false'
+
+    'Boxstarter::HyperV::Sandbox=false'
 )
 
 # Download my boxstarter bootstrap
