@@ -35,7 +35,7 @@ $options = @(
     'Boxstarter::Advanced::CornerNavigationOptions=true'
     'Boxstarter::Advanced::Windows-Update=true'
     'Boxstarter::Advanced::Remove-Apps=true'
-    'Boxstarter::Advanced::Keyboard=true'
+    'Boxstarter::Advanced::Keyboard=false'
 
     'Boxstarter::DevCore::wget=false'
     'Boxstarter::DevCore::curl=false'
