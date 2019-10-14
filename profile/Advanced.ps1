@@ -10,18 +10,18 @@
 Import-Function -Path "$sRoot/helpers/tweak/Remove-WindowsApp.ps1"
 Import-Function -Path "$sRoot/helpers/tweak/Remove-OneDrive.ps1"
 Import-Function -Path "$sRoot/helpers/tweak/Disassembler0/Win10.ps1"
-Import-Function -Path "$sRoot/helpers/tweak/SetDefaultKeyboardCH.ps1"
+#Import-Function -Path "$sRoot/helpers/tweak/SetDefaultKeyboardCH.ps1"
 #----------------------------------------------------------------------------------------------------------------------
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #    Keyboard settings
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-if(Confirm-Install 'Boxstarter::Advanced::Keyboard')
-{
-    Write-BoxstarterMessage "Changing Keyboard settings..."
+# if(Confirm-Install 'Boxstarter::Advanced::Keyboard')
+# {
+#     Write-BoxstarterMessage "Changing Keyboard settings..."
 
-    SetDefaultKeyboardCH
-}
+#     SetDefaultKeyboardCH
+# }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #    Privacy settings
