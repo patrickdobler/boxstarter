@@ -9,9 +9,9 @@ Set-ExecutionPolicy Unrestricted -Scope Process -Force
 
 # Profiles to install
 $profiles = @(
-    #'Advanced'
+    'Advanced'
     'Tools'
-    #'DevCore'
+    'DevCore'
     #'HyperV'
 )
 
