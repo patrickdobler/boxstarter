@@ -12,7 +12,7 @@ $profiles = @(
     'Advanced'
     'Tools'
     'DevCore'
-    'HyperV'
+    #'HyperV'
 )
 
 # Define options
