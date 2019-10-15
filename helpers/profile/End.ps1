@@ -35,11 +35,15 @@ if(Confirm-Install 'Boxstarter::End')
     Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "C:\vcredist*"
     Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "C:\vc_red*"
 
-    # Remove all Public Desktop Icons and Edge
-    if(Confirm-Install 'Boxstarter::End::RemoveDesktopIcons') {
+    # Remove Desktop Icons and Temp Install Data
+    if(Confirm-Install 'Boxstarter::End::Cleanup') {
         Get-ChildItem "$env:Public\Desktop\*.lnk" | ForEach-Object { Remove-Item $_ }
-        Get-ChildItem "$env:USERPROFILE\Desktop\Microsoft Edge.lnk" | Remove-Item
+        Get-ChildItem "$env:USERPROFILE\Desktop\*.lnk" | ForEach-Object { Remove-Item $_ }
+        Remove-Item "$env:USERPROFILE\AppData\Local\Apps" -Recurse -Force -ErrorAction SilentlyContinue
+        Remove-Item "$env:USERPROFILE\AppData\Local\BoxStarter" -Recurse -Force -ErrorAction SilentlyContinue
+        Remove-Item "$env:USERPROFILE\Chocolately" -Recurse -Force -ErrorAction SilentlyContinue
     }
+    
 }
 
 # Clean environnement variables

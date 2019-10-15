@@ -24,7 +24,7 @@ if(Confirm-Install 'Boxstarter::Tools::jre8')             { Install-ChocoApp jre
 if(Confirm-Install 'Boxstarter::Tools::keepass')          { Install-ChocoApp keepass.install }
 if(Confirm-Install 'Boxstarter::Tools::treesizefree')     { Install-ChocoApp treesizefree }
 if(Confirm-Install 'Boxstarter::Tools::putty')            { Install-ChocoApp putty.install }
-if(Confirm-Install 'Boxstarter::Tools::samsung-magician') { Install-ChocoApp samsung-magician -NoChecksums $true }
+#if(Confirm-Install 'Boxstarter::Tools::samsung-magician') { Install-ChocoApp samsung-magician -NoChecksums $true } # package error
 #if(Confirm-Install 'Boxstarter::Tools::sandboxie')        { Install-ChocoApp sandboxie.install } # download error
 if(Confirm-Install 'Boxstarter::Tools::teamviewer')       { Install-ChocoApp teamviewer }
 if(Confirm-Install 'Boxstarter::Tools::totalcommander')   { Install-ChocoApp totalcommander }
