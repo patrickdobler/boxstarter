@@ -35,9 +35,10 @@ if(Confirm-Install 'Boxstarter::End')
     Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "C:\vcredist*"
     Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "C:\vc_red*"
 
-    # Remove all Public Desktop Icons
+    # Remove all Public Desktop Icons and Edge
     if(Confirm-Install 'Boxstarter::End::RemoveDesktopIcons') {
         Get-ChildItem "$env:Public\Desktop\*.lnk" | ForEach-Object { Remove-Item $_ }
+        Get-ChildItem "$env:USERPROFILE\Desktop\Microsoft Edge.lnk" | Remove-Item
     }
 }
 
