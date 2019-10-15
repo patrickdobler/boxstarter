@@ -67,9 +67,9 @@ if($(Confirm-Install 'Boxstarter::DevCore::VisualStudioCodeExtensions') -And $(C
 if(Confirm-Install 'Boxstarter::DevCore::fonts')
 {
     if(Confirm-Install 'Boxstarter::DevCore::dejavufonts')      { Install-ChocoApp 'dejavufonts' }
-    if(Confirm-Install 'Boxstarter::DevCore::firacode')         { Install-ChocoApp 'firacode' }
+    #if(Confirm-Install 'Boxstarter::DevCore::firacode')         { Install-ChocoApp 'firacode' } # build error
     if(Confirm-Install 'Boxstarter::DevCore::hackfont')         { Install-ChocoApp 'hackfont' }
     if(Confirm-Install 'Boxstarter::DevCore::robotofonts')      { Install-ChocoApp 'robotofonts' }
     #if(Confirm-Install 'Boxstarter::DevCore::sourcecodepro')    { Install-ChocoApp 'sourcecodepro' } # build error
-    if(Confirm-Install 'Boxstarter::DevCore::cascadiacode')     { Install-ChocoApp 'cascadiacode' }
+    #if(Confirm-Install 'Boxstarter::DevCore::cascadiacode')     { Install-ChocoApp 'cascadiacode' } # build error
 }
