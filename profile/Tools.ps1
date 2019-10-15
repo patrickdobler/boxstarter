@@ -8,7 +8,6 @@ if(Confirm-Install 'Boxstarter::Tools::edge-dev')        { Install-ChocoApp micr
 
 # Office
 if(Confirm-Install 'Boxstarter::Tools::citrix')           { Install-ChocoApp citrix-workspace }
-if(Confirm-Install 'Boxstarter::Tools::citrix')           { Install-ChocoApp citrix-receiver }
 if(Confirm-Install 'Boxstarter::Tools::grammarly')        { Install-ChocoApp grammarly }
 if(Confirm-Install 'Boxstarter::Tools::office365proplus') { Install-ChocoApp office365proplus -NoUpgrade }
 if(Confirm-Install 'Boxstarter::Tools::notion')           { Install-ChocoApp notion -NoUpgrade }
@@ -19,14 +18,14 @@ if(Confirm-Install 'Boxstarter::Tools::adobereader')      { Install-ChocoApp ado
 if(Confirm-Install 'Boxstarter::Tools::adobereader')      { Install-ChocoApp adobereader-update }
 if(Confirm-Install 'Boxstarter::Tools::flashplayer')      { Install-ChocoApp flashplayer }
 if(Confirm-Install 'Boxstarter::Tools::notepadplusplus')  { Install-ChocoApp notepadplusplus.install }
-if(Confirm-Install 'Boxstarter::Tools::google-backup')    { Install-ChocoApp google-backup-and-sync }
+if(Confirm-Install 'Boxstarter::Tools::google-backup')    { Install-ChocoApp google-backup-and-sync -NoChecksums $true -NoUpgrade }
 if(Confirm-Install 'Boxstarter::Tools::filezilla')        { Install-ChocoApp filezilla }
 if(Confirm-Install 'Boxstarter::Tools::jre8')             { Install-ChocoApp jre8 }
 if(Confirm-Install 'Boxstarter::Tools::keepass')          { Install-ChocoApp keepass.install }
 if(Confirm-Install 'Boxstarter::Tools::treesizefree')     { Install-ChocoApp treesizefree }
 if(Confirm-Install 'Boxstarter::Tools::putty')            { Install-ChocoApp putty.install }
-if(Confirm-Install 'Boxstarter::Tools::samsung-magician') { Install-ChocoApp samsung-magician }
-if(Confirm-Install 'Boxstarter::Tools::sandboxie')        { Install-ChocoApp sandboxie.install }
+if(Confirm-Install 'Boxstarter::Tools::samsung-magician') { Install-ChocoApp samsung-magician -NoChecksums $true }
+#if(Confirm-Install 'Boxstarter::Tools::sandboxie')        { Install-ChocoApp sandboxie.install } # download error
 if(Confirm-Install 'Boxstarter::Tools::teamviewer')       { Install-ChocoApp teamviewer }
 if(Confirm-Install 'Boxstarter::Tools::totalcommander')   { Install-ChocoApp totalcommander }
 if(Confirm-Install 'Boxstarter::Tools::winrar')           { Install-ChocoApp winrar }
@@ -52,11 +51,7 @@ if(Confirm-Install 'Boxstarter::Tools::nvidiadriver')     { Install-ChocoApp nvi
 
 # Auto Update Choco Packages
 
-if(Confirm-Install 'Boxstarter::Tools::chocoupgrade')
-{
-    $upgradeParam = "'/WEEKLY:yes /DAY:SAT /TIME:01:00'"
-    Install-ChocoApp choco-upgrade-all-at --params $upgradeParam
-}
+if(Confirm-Install 'Boxstarter::Tools::chocoupgrade')     { Install-ChocoApp choco-upgrade-all-at -Params '"/WEEKLY:yes /DAY:SAT /TIME:01:00"' }
 
 <# Does not work in current 1909 german build
 #--- Pin to Taskbar
