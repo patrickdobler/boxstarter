@@ -404,7 +404,7 @@ Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.WinJS.2.0'           
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.YourPhone'                      'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.ZuneMusic'                      'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.ZuneVideo'                      'true'
-Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.Advertising.Xaml'               'true' # Dependency for microsoft.windowscommunicationsapps, Microsoft.BingWeather
+Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.Advertising.Xaml'               'false' # Dependency for microsoft.windowscommunicationsapps, Microsoft.BingWeather
 
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Autodesk'                                 'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::BubbleWitch'                              'true'

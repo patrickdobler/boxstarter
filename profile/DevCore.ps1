@@ -24,9 +24,9 @@ if(Confirm-Install 'Boxstarter::DevCore::sysinternals')    { Install-ChocoApp sy
 if(Confirm-Install 'Boxstarter::Tools::cmder')
 {
     # Add cmder to ENV:PATH & right click at every folder
-    Invoke-Expression -command "setx PATH %PATH%;C:\tools\cmder"
+    Invoke-Expression -Command '$env:Path += ";C:\tools\Cmder"'
     Invoke-Expression -command "Cmder.exe /REGISTER ALL"
-    Pin-TaskBarItem "c:\tools\cmder\cmder.exe"
+    #Pin-TaskBarItem "c:\tools\cmder\cmder.exe"
 }
 
 #--- Enable Telnet

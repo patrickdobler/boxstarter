@@ -25,8 +25,8 @@ function Pin-TaskBarItem {
 
         # Define verbs used to pin to taskbar
         $verbs = @()
-        $verbs += "Pin To Taskbar"                      # EN
-        $verbs += "Épingler à l’écran de démarrage"     # FR
+        $verbs += "Pin To Taskbar"             # EN
+        $verbs += "An Taskleiste anheften"     # FR
         if($null -eq $verb) {
             $verbs += $verb
         }

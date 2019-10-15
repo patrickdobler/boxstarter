@@ -4,7 +4,7 @@
 # Browser
 if(Confirm-Install 'Boxstarter::Tools::googlechrome')    { Install-ChocoApp googlechrome -NoUpgrade }
 if(Confirm-Install 'Boxstarter::Tools::opera')           { Install-ChocoApp opera -NoUpgrade }
-if(Confirm-Install 'Boxstarter::Tools::edge-dev')        { Install-ChocoApp microsoft-edge-insider-dev -NoUpgrade }
+if(Confirm-Install 'Boxstarter::Tools::edge-dev')        { Install-ChocoApp microsoft-edge-insider-dev --ignorechecksum -NoUpgrade }
 
 # Office
 if(Confirm-Install 'Boxstarter::Tools::citrix')           { Install-ChocoApp citrix-workspace }
@@ -58,6 +58,7 @@ if(Confirm-Install 'Boxstarter::Tools::chocoupgrade')
     Install-ChocoApp choco-upgrade-all-at --params $upgradeParam
 }
 
+<# Does not work in current 1909 german build
 #--- Pin to Taskbar
 if(Confirm-Install 'Boxstarter::Tools::googlechrome')     { Pin-TaskBarItem "${Env:ProgramFiles(x86)}\Google\Chrome\Application\chrome.exe" }
 if(Confirm-Install 'Boxstarter::Tools::opera')            { Pin-TaskBarItem "${Env:ProgramFiles}\Opera\launcher.exe" }
@@ -65,3 +66,4 @@ if(Confirm-Install 'Boxstarter::Tools::nzbget')           { Pin-TaskBarItem "${E
 if(Confirm-Install 'Boxstarter::Tools::totalcommander')   { Pin-TaskBarItem "${Env:ProgramFiles}\totalcmd\TOTALCMD64.EXE" }
 if(Confirm-Install 'Boxstarter::Tools::notepadplusplus')  { Pin-TaskBarItem "${Env:ProgramFiles(x86)}\Notepad++\notepad++.exe" }
 if(Confirm-Install 'Boxstarter::Tools::whatsapp')         { Pin-TaskBarItem "${env:UserProfile}\AppData\Local\WhatsApp\WhatsApp.exe" }
+#>
