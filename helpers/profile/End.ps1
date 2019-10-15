@@ -34,6 +34,11 @@ if(Confirm-Install 'Boxstarter::End')
     Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "C:\install*"
     Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "C:\vcredist*"
     Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "C:\vc_red*"
+
+    # Remove all Public Desktop Icons
+    if(Confirm-Install 'Boxstarter::End::RemoveDesktopIcons') {
+        Get-ChildItem "$env:Public\Desktop\*.lnk" | ForEach-Object { Remove-Item $_ }
+    }
 }
 
 # Clean environnement variables
@@ -48,6 +53,11 @@ foreach($var in Get-EnvironmentVariableNames('User')) {
     if($toRemove) {
         Remove-EnvironmentVariable $var 'User'
     }
+}
+
+# Reset ExecutionPolicy back to default
+if(Confirm-Install 'Boxstarter::End::ExecutionPolicy') {
+    Update-ExecutionPolicy Restricted
 }
 
 if(Test-PendingReboot) { Invoke-Reboot }
