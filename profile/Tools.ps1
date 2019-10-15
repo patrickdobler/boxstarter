@@ -4,7 +4,7 @@
 # Browser
 if(Confirm-Install 'Boxstarter::Tools::googlechrome')    { Install-ChocoApp googlechrome -NoUpgrade }
 if(Confirm-Install 'Boxstarter::Tools::opera')           { Install-ChocoApp opera -NoUpgrade }
-if(Confirm-Install 'Boxstarter::Tools::edge-dev')        { Install-ChocoApp microsoft-edge-insider-dev --ignorechecksum -NoUpgrade }
+if(Confirm-Install 'Boxstarter::Tools::edge-dev')        { Install-ChocoApp microsoft-edge-insider-dev -NoChecksums $true -NoUpgrade }
 
 # Office
 if(Confirm-Install 'Boxstarter::Tools::citrix')           { Install-ChocoApp citrix-workspace }

@@ -23,6 +23,9 @@ function Install-ChocoApp
         [Parameter(Mandatory=$true, Position=0)]
         [String]$Name,
 
+        [Parameter(Mandatory=$false)]
+        [bool]$NoChecksums = $false,
+
         [alias("p","parameters","pkgParams")]
         [string]$Params = '',
 
@@ -33,12 +36,18 @@ function Install-ChocoApp
         [switch]$NoUpgrade
     )
 
+    switch ($NoChecksums)
+    {
+        $true { $NoChecksum = '--ignorechecksum'; break }
+        default { $NoChecksum = ''; break }
+    }
+
     # Workaround choco / boxstarter path too long error
     $ChocoCachePath = "$env:USERPROFILE\AppData\Local\Temp\chocolatey"
     New-Item -Path $ChocoCachePath -ItemType Directory -Force
 
     if( [string]::IsNullOrEmpty( $(choco list --local-only --limitoutput | Where-Object {($_ -split "\|")[0] -like $Name}) ) ) {
-        choco install $Name --params $Params --yes --limitoutput --cacheLocation="$ChocoCachePath"
+        choco install $Name --params $Params --yes $NoChecksum --limitoutput --cacheLocation="$ChocoCachePath"
     }
     else {
         choco upgrade $Name --params $Params --yes --limitoutput --cacheLocation="$ChocoCachePath"
