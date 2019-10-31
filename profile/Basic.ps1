@@ -199,13 +199,6 @@ if(Confirm-Install 'Boxstarter::Basic::UI')
     DisableF1HelpKey                # EnableF1HelpKey
 }
 
-if(Confirm-Install 'Boxstarter::Basic::PC::UI')
-{
-    Write-BoxstarterMessage "Updating UI settings..."
-
-    DisableActionCenter             # EnableActionCenter
-}
-
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #    UI preferences
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
