@@ -8,7 +8,6 @@
 
 #--- [Import] ---------------------------------------------------------------------------------------------------------
 Import-Function -Path "$sRoot/helpers/tweak/Remove-WindowsApp.ps1"
-Import-Function -Path "$sRoot/helpers/tweak/Remove-OneDrive.ps1"
 Import-Function -Path "$sRoot/helpers/tweak/Disassembler0/Win10.ps1"
 Import-Function -Path "$sRoot/helpers/tweak/SetDefaultKeyboardCH.ps1"
 #----------------------------------------------------------------------------------------------------------------------
@@ -32,7 +31,7 @@ if(Confirm-Install 'Boxstarter::Advanced::Privacy')
     DisableTelemetry                # EnableTelemetry
     DisableWiFiSense                # EnableWiFiSense
     # DisableSmartScreen            # EnableSmartScreen
-    DisableWebSearch                # EnableWebSearch
+    # DisableWebSearch              # EnableWebSearch
     DisableAppSuggestions           # EnableAppSuggestions
     DisableActivityHistory          # EnableActivityHistory
     DisableBackgroundApps           # EnableBackgroundApps
@@ -132,6 +131,7 @@ if(Confirm-Install 'Boxstarter::Advanced::Service')
     # DisableUpdateAutoDownload     # EnableUpdateAutoDownload
     DisableUpdateRestart            # EnableUpdateRestart
     DisableMaintenanceWakeUp        # EnableMaintenanceWakeUp
+    # DisableAutoRestartSignOn      # EnableAutoRestartSignOn
     DisableSharedExperiences        # EnableSharedExperiences
     # EnableClipboardHistory        # DisableClipboardHistory
     DisableAutoplay                 # EnableAutoplay
@@ -183,12 +183,14 @@ if(Confirm-Install 'Boxstarter::Advanced::UI')
     # DisableNewAppPrompt           # EnableNewAppPrompt
     # HideRecentlyAddedApps         # ShowRecentlyAddedApps
     # HideMostUsedApps              # ShowMostUsedApps
+    # SetWinXMenuPowerShell         # SetWinXMenuCmd
     SetControlPanelSmallIcons       # SetControlPanelLargeIcons     # SetControlPanelCategories
     DisableShortcutInName           # EnableShortcutInName
     # HideShortcutArrow             # ShowShortcutArrow
     # SetVisualFXPerformance        # SetVisualFXAppearance
     # EnableTitleBarColor           # DisableTitleBarColor
-    # EnableDarkTheme               # DisableDarkTheme
+    # SetAppsDarkMode               # SetAppsLightMode
+    # SetSystemLightMode            # SetSystemDarkMode
     # AddENKeyboard                 # RemoveENKeyboard
     # EnableNumlock                 # DisableNumlock
     # DisableEnhPointerPrecision    # EnableEnhPointerPrecision
@@ -242,6 +244,7 @@ if(Confirm-Install 'Boxstarter::Advanced::UI-Preferences')
     # ShowUserFolderOnDesktop       # HideUserFolderFromDesktop
     # ShowControlPanelOnDesktop     # HideControlPanelFromDesktop
     # ShowNetworkOnDesktop          # HideNetworkFromDesktop
+    # HideDesktopIcons              # ShowDesktopIcons
     # ShowBuildNumberOnDesktop      # HideBuildNumberFromDesktop
     # HideDesktopFromThisPC         # ShowDesktopInThisPC
     # HideDesktopFromExplorer       # ShowDesktopInExplorer
@@ -286,12 +289,19 @@ if(Confirm-Install 'Boxstarter::Advanced::Application')
     DisableIEFirstRun               # EnableIEFirstRun
     DisableFirstLogonAnimation      # EnableFirstLogonAnimation
     DisableMediaSharing             # EnableMediaSharing
+    # EnableDeveloperMode           # DisableDeveloperMode
     UninstallMediaPlayer            # InstallMediaPlayer
     # UninstallInternetExplorer     # InstallInternetExplorer
     UninstallWorkFolders            # InstallWorkFolders
+    UninstallHelloFace              # InstallHelloFace
+    UninstallMathRecognizer         # InstallMathRecognizer
     # UninstallPowerShellV2         # InstallPowerShellV2
+    # UninstallPowerShellISE        # InstallPowerShellISE
     # InstallLinuxSubsystem         # UninstallLinuxSubsystem
     # InstallHyperV                 # UninstallHyperV
+    # UninstallSSHClient            # InstallSSHClient
+    # InstallSSHServer              # UninstallSSHServer
+    # InstallTelnetClient           # UninstallTelnetClient
     # InstallNET23                  # UninstallNET23
     # SetPhotoViewerAssociation     # UnsetPhotoViewerAssociation
     AddPhotoViewerOpenWith          # RemovePhotoViewerOpenWith
@@ -333,7 +343,7 @@ if(Confirm-Install 'Boxstarter::Advanced::RemoteDesktop') {
 Set-DefaultOption 'Boxstarter::Advanced::Remove-Apps'                                      'true'
 
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.3DBuilder'                      'true'
-Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.Appconnector'                   'true'
+Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.AppConnector'                   'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.BingFinance'                    'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.BingFoodAndDrink'               'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.BingHealthAndFitness'           'true'
@@ -345,7 +355,6 @@ Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.BingTravel'          
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.BingWeather'                    'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.CommsPhone'                     'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.ConnectivityStore'              'true'
-Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.DesktopAppInstaller'            'false' # Don't remove
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.FreshPaint'                     'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.GetHelp'                        'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.Getstarted'                     'true'
@@ -359,46 +368,32 @@ Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.MicrosoftSolitaireCol
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.MicrosoftStickyNotes'           'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.MinecraftUWP'                   'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.MixedReality.Portal'            'true'
-Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.Microsoft.MoCamera'             'true'
+Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.MoCamera'                       'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.MSPaint'                        'false'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.NetworkSpeedTest'               'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.OfficeLens'                     'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.Office.OneNote'                 'false'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.Office.Sway'                    'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.OneConnect'                     'true'
-# Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.OneDrive'                     'false'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.People'                         'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.Print3D'                        'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.Reader'                         'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.RemoteDesktop'                  'true'
-Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.ScreenSketch'                   'true'
-Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.SkypeApp'                       'true'
-Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.StorePurchaseApp'               'false' # Don't remove
+Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.SkypeApp'                       'false'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.Todos'                          'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.Wallet'                         'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.WebMediaExtensions'             'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.Whiteboard'                     'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.Windows.Photos'                 'false'
-Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.Windows.CapturePicker'          'false'
-Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.Windows.CloudExperienceHost'    'false' # Don't remove
-Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.Windows.PeopleExperienceHost'   'false' # Don't remove
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.WindowsAlarms'                  'true'
-Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.WindowsCalculator'              'false'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.WindowsCamera'                  'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::microsoft.windowscommunicationsapps'      'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.WindowsFeedbackHub'             'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.WindowsMaps'                    'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.WindowsPhone'                   'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.WindowsReadingList'             'true'
-Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.Microsoft.WindowsScan'          'false'
+Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.WindowsScan'                    'false'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.WindowsSoundRecorder'           'true'
-Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.WindowsStore'                   'false' # Don't remove
-Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.XboxApp'                        'true'
-Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.XboxGameOverlay'                'true'
-Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.XboxGamingOverlay'              'true'
-Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.XboxIdentityProvider'           'true'
-Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.XboxSpeechToTextOverlay'        'true'
-Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.Xbox.TCUI'                      'false' # Don't remove
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.WinJS.1.0'                      'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.WinJS.2.0'                      'true'
 Set-DefaultOption 'Boxstarter::Advanced::Remove::Microsoft.YourPhone'                      'true'
@@ -422,7 +417,7 @@ Set-DefaultOption 'Boxstarter::Advanced::Remove::Twitter'                       
 
 [String[]]$apps = @()
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.3DBuilder')                     { $apps += 'Microsoft.3DBuilder' }
-if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.Appconnector')                  { $apps += 'Microsoft.Appconnector' }
+if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.AppConnector')                  { $apps += 'Microsoft.AppConnector' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.BingFinance')                   { $apps += 'Microsoft.BingFinance' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.BingFoodAndDrink')              { $apps += 'Microsoft.BingFoodAndDrink' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.BingHealthAndFitness')          { $apps += 'Microsoft.BingHealthAndFitness' }
@@ -434,7 +429,6 @@ if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.BingTravel')         
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.BingWeather')                   { $apps += 'Microsoft.BingWeather' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.CommsPhone')                    { $apps += 'Microsoft.CommsPhone' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.ConnectivityStore')             { $apps += 'Microsoft.ConnectivityStore' }
-if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.DesktopAppInstaller')           { $apps += 'Microsoft.DesktopAppInstaller' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.FreshPaint')                    { $apps += 'Microsoft.FreshPaint' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.GetHelp')                       { $apps += 'Microsoft.GetHelp' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.Getstarted')                    { $apps += 'Microsoft.Getstarted' }
@@ -448,46 +442,32 @@ if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.MicrosoftSolitaireCol
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.MicrosoftStickyNotes')          { $apps += 'Microsoft.MicrosoftStickyNotes' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.MinecraftUWP')                  { $apps += 'Microsoft.MinecraftUWP' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.MixedReality.Portal')           { $apps += 'Microsoft.MixedReality.Portal' }
-if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.Microsoft.MoCamera' )           { $apps += 'Microsoft.Microsoft.MoCamera' }
+if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.MoCamera' )                     { $apps += 'Microsoft.MoCamera' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.MSPaint')                       { $apps += 'Microsoft.MSPaint' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.NetworkSpeedTest')              { $apps += 'Microsoft.NetworkSpeedTest' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.OfficeLens')                    { $apps += 'Microsoft.OfficeLens' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.Office.OneNote')                { $apps += 'Microsoft.Office.OneNote' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.Office.Sway')                   { $apps += 'Microsoft.Office.Sway' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.OneConnect')                    { $apps += 'Microsoft.OneConnect' }
-# if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.OneDrive')                    { $apps += 'Microsoft.OneDrive' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.People')                        { $apps += 'Microsoft.People' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.Print3D')                       { $apps += 'Microsoft.Print3D' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.Reader')                        { $apps += 'Microsoft.Reader' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.RemoteDesktop')                 { $apps += 'Microsoft.RemoteDesktop' }
-if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.ScreenSketch')                  { $apps += 'Microsoft.ScreenSketch' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.SkypeApp')                      { $apps += 'Microsoft.SkypeApp' }
-if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.StorePurchaseApp')              { $apps += 'Microsoft.StorePurchaseApp' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.Todos')                         { $apps += 'Microsoft.Todos' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.Wallet')                        { $apps += 'Microsoft.Wallet' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.WebMediaExtensions')            { $apps += 'Microsoft.WebMediaExtensions' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.Whiteboard')                    { $apps += 'Microsoft.Whiteboard' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.Windows.Photos')                { $apps += 'Microsoft.Windows.Photos' }
-if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.Windows.CapturePicker')         { $apps += 'Microsoft.Windows.CapturePicker' }
-if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.Windows.CloudExperienceHost')   { $apps += 'Microsoft.Windows.CloudExperienceHostPhotos' }
-if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.Windows.PeopleExperienceHost')  { $apps += 'Microsoft.Windows.PeopleExperienceHostPhotos' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.WindowsAlarms')                 { $apps += 'Microsoft.WindowsAlarms' }
-if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.WindowsCalculator')             { $apps += 'Microsoft.WindowsCalculator' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.WindowsCamera')                 { $apps += 'Microsoft.WindowsCamera' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::microsoft.windowscommunicationsapps')     { $apps += 'microsoft.windowscommunicationsapps' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.WindowsFeedbackHub')            { $apps += 'Microsoft.WindowsFeedbackHub' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.WindowsMaps')                   { $apps += 'Microsoft.WindowsMaps' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.WindowsPhone')                  { $apps += 'Microsoft.WindowsPhone' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.WindowsReadingList')            { $apps += 'Microsoft.WindowsReadingList' }
-if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.Microsoft.WindowsScan')         { $apps += 'Microsoft.Microsoft.WindowsScan' }
+if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.WindowsScan')         { $apps += 'Microsoft.WindowsScan' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.WindowsSoundRecorder')          { $apps += 'Microsoft.WindowsSoundRecorder' }
-if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.WindowsStore')                  { $apps += 'Microsoft.WindowsStore' }
-if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.XboxApp')                       { $apps += 'Microsoft.XboxApp' }
-if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.XboxGameOverlay')               { $apps += 'Microsoft.XboxGameOverlay' }
-if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.XboxGamingOverlay')             { $apps += 'Microsoft.XboxGamingOverlay' }
-if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.XboxIdentityProvider')          { $apps += 'Microsoft.XboxIdentityProvider' }
-if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.XboxSpeechToTextOverlay')       { $apps += 'Microsoft.XboxSpeechToTextOverlay' }
-if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.Xbox.TCUI')                     { $apps += 'Microsoft.Xbox.TCUI' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.WinJS.1.0')                     { $apps += 'Microsoft.WinJS.1.0' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.WinJS.2.0')                     { $apps += 'Microsoft.WinJS.2.0' }
 if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.YourPhone')                     { $apps += 'Microsoft.YourPhone' }
@@ -519,11 +499,6 @@ if(Get-OptionBool 'Boxstarter::Advanced::Remove-Apps') {
     # Remove default apps
     Remove-WindowsApp $apps
 
-    # remove oneDrive
-    if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.OneDrive') {
-        Remove-OneDrive
-    }
-
     # remove paint 3D
     if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.MSPaint') {
         # How to remove 'Edit with Paint 3D' from context menu
@@ -531,19 +506,11 @@ if(Get-OptionBool 'Boxstarter::Advanced::Remove-Apps') {
     }
 
     # Xbox
-    if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.XboxApp') {
-		Set-Registry -Path 'HKCU:\SOFTWARE\Microsoft\GameBar' -Name 'AutoGameModeEnabled' -Type 'DWord' -Value 0
-        Set-Registry -Path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR' -Name 'AppCaptureEnabled' -Type 'DWord' -Value 0
-        Set-Registry -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\GameDVR' -Name "AllowGameDVR" -Type 'DWord' -Value 0
-        Set-Registry -Path 'HKCU:\System\GameConfigStore' -Name 'GameDVR_Enabled' -Type 'DWord' -Value 0
-    }
+    #if(Get-OptionBool 'Boxstarter::Advanced::Remove::Microsoft.XboxApp') {
+	#	Set-Registry -Path 'HKCU:\SOFTWARE\Microsoft\GameBar' -Name 'AutoGameModeEnabled' -Type 'DWord' -Value 0
+    #    Set-Registry -Path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR' -Name 'AppCaptureEnabled' -Type 'DWord' -Value 0
+    #    Set-Registry -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\GameDVR' -Name "AllowGameDVR" -Type 'DWord' -Value 0
+    #    Set-Registry -Path 'HKCU:\System\GameConfigStore' -Name 'GameDVR_Enabled' -Type 'DWord' -Value 0
+    #}
 
-    # remove McAfee Security App
-    if(Get-OptionBool 'Boxstarter::Advanced::Remove::McAfee') {
-        $mcafee = Get-ChildItem 'HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall' | ForEach-Object { Get-ItemProperty $_.PSPath } | Where-Object { $_ -match "McAfee Security" } | Select-Object UninstallString
-        if ($mcafee) {
-            $mcafee = $mcafee.UninstallString -Replace 'C:\Program Files\McAfee\MSC\mcuihost.exe',''
-            Start-Process "C:\Program Files\McAfee\MSC\mcuihost.exe" -arg "$mcafee" -Wait
-        }
-    }
 }
