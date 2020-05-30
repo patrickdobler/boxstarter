@@ -192,7 +192,7 @@ if(Confirm-Install 'Boxstarter::Advanced::UI')
     # SetAppsDarkMode               # SetAppsLightMode
     # SetSystemLightMode            # SetSystemDarkMode
     # AddENKeyboard                 # RemoveENKeyboard
-    # EnableNumlock                 # DisableNumlock
+    EnableNumlock                 # DisableNumlock
     # DisableEnhPointerPrecision    # EnableEnhPointerPrecision
     SetSoundSchemeNone              # SetSoundSchemeDefault
     # DisableStartupSound           # EnableStartupSound
