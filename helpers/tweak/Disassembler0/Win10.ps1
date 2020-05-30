@@ -3802,4 +3802,4 @@ Function Restart {
 
 
 # Export functions
-Export-ModuleMember -Function *
+#Export-ModuleMember -Function *
