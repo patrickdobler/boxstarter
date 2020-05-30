@@ -4,11 +4,11 @@
 # Browser
 if(Confirm-Install 'Boxstarter::Tools::googlechrome')    { Install-ChocoApp googlechrome -NoUpgrade }
 if(Confirm-Install 'Boxstarter::Tools::opera')           { Install-ChocoApp opera -NoUpgrade }
-if(Confirm-Install 'Boxstarter::Tools::edge-dev')        { Install-ChocoApp microsoft-edge-insider-dev -NoChecksums $true -NoUpgrade }
+if(Confirm-Install 'Boxstarter::Tools::edge')            { Install-ChocoApp microsoft-edge -NoChecksums $true -NoUpgrade }
 
 # Office
 if(Confirm-Install 'Boxstarter::Tools::citrix')           { Install-ChocoApp citrix-workspace }
-if(Confirm-Install 'Boxstarter::Tools::grammarly')        { Install-ChocoApp grammarly }
+#if(Confirm-Install 'Boxstarter::Tools::grammarly')        { Install-ChocoApp grammarly }
 if(Confirm-Install 'Boxstarter::Tools::office365proplus') { Install-ChocoApp office365proplus -NoUpgrade }
 if(Confirm-Install 'Boxstarter::Tools::notion')           { Install-ChocoApp notion -NoUpgrade }
 
@@ -16,6 +16,7 @@ if(Confirm-Install 'Boxstarter::Tools::notion')           { Install-ChocoApp not
 if(Confirm-Install 'Boxstarter::Tools::7zip')             { Install-ChocoApp 7zip.install }
 if(Confirm-Install 'Boxstarter::Tools::adobereader')      { Install-ChocoApp adobereader }
 if(Confirm-Install 'Boxstarter::Tools::adobereader')      { Install-ChocoApp adobereader-update }
+if(Confirm-Install 'Boxstarter::Tools::adobedigitaleditions') { Install-ChocoApp adobedigitaleditions }
 if(Confirm-Install 'Boxstarter::Tools::flashplayer')      { Install-ChocoApp flashplayer }
 if(Confirm-Install 'Boxstarter::Tools::notepadplusplus')  { Install-ChocoApp notepadplusplus.install }
 if(Confirm-Install 'Boxstarter::Tools::google-backup')    { Install-ChocoApp google-backup-and-sync -NoChecksums $true -NoUpgrade }
@@ -37,6 +38,7 @@ if(Confirm-Install 'Boxstarter::Tools::picpick')          { Install-ChocoApp pic
 if(Confirm-Install 'Boxstarter::Tools::discord')          { Install-ChocoApp discord.install -NoUpgrade }
 if(Confirm-Install 'Boxstarter::Tools::whatsapp')         { Install-ChocoApp whatsapp -NoUpgrade }
 if(Confirm-Install 'Boxstarter::Tools::slack')            { Install-ChocoApp slack -NoUpgrade }
+if(Confirm-Install 'Boxstarter::Tools::telegram')         { Install-ChocoApp telegram -NoUpgrade }
 
 # Images
 if(Confirm-Install 'Boxstarter::Tools::imageglass')       { Install-ChocoApp imageglass }

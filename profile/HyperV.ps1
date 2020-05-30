@@ -2,11 +2,31 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #  Enable Hyper-V
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-if(Confirm-Install 'Boxstarter::HyperV::HyperVAll')                            { Install-ChocoWindowsFeature Microsoft-Hyper-V-All }
-if(Confirm-Install 'Boxstarter::HyperV::Sandbox')                              { Install-ChocoWindowsFeature Containers-DisposableClientVM }
+#if(Confirm-Install 'Boxstarter::HyperV::HyperVAll')                            { Install-ChocoWindowsFeature Microsoft-Hyper-V-All }
+#if(Confirm-Install 'Boxstarter::HyperV::Sandbox')                              { Install-ChocoWindowsFeature Containers-DisposableClientVM }
 #if(Confirm-Install 'Boxstarter::HyperV::Containers')                           { Install-ChocoWindowsFeature Containers }
 #if(Confirm-Install 'Boxstarter::HyperV::Microsoft-Windows-Subsystem-Linux')    { Install-ChocoWindowsFeature Microsoft-Windows-Subsystem-Linux }
 #if(Confirm-Install 'Boxstarter::HyperV::VirtualMachinePlatform')               { Install-ChocoWindowsFeature VirtualMachinePlatform }
+
+Function InstallHyperV {
+	Write-Output "Installing Hyper-V..."
+	If ((Get-CimInstance -Class "Win32_OperatingSystem").ProductType -eq 1) {
+		Get-WindowsOptionalFeature -Online | Where-Object { $_.FeatureName -eq "Microsoft-Hyper-V-All" } | Enable-WindowsOptionalFeature -Online -NoRestart -WarningAction SilentlyContinue | Out-Null
+	} Else {
+		Install-WindowsFeature -Name "Hyper-V" -IncludeManagementTools -WarningAction SilentlyContinue | Out-Null
+	}
+}
+
+Function InstallSandbox {
+	Write-Output "Installing Hyper-V..."
+	If ((Get-CimInstance -Class "Win32_OperatingSystem").ProductType -eq 1) {
+		Get-WindowsOptionalFeature -Online | Where-Object { $_.FeatureName -eq "Containers-DisposableClientVM" } | Enable-WindowsOptionalFeature -Online -NoRestart -WarningAction SilentlyContinue | Out-Null
+	}
+}
+
+if(Confirm-Install 'Boxstarter::HyperV::HyperV') { InstallHyperV }
+if(Confirm-Install 'Boxstarter::HyperV::Sandbox') { InstallSandbox }
+
 
 if(Confirm-Install 'Boxstarter::HyperV::HyperVAll')
 {
@@ -35,3 +55,6 @@ if(Confirm-Install 'Boxstarter::HyperV::HyperVAll')
     
     Set-VMHost -EnableEnhancedSessionMode:$true
 }
+
+
+

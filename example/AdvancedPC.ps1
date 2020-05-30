@@ -30,17 +30,25 @@ $options = @(
     'Boxstarter::DevCore::github-desktop=false'
     'Boxstarter::DevCore::sysinternals=false'
     'Boxstarter::DevCore::gcm=false'
+    'Boxstarter::DevCore::python3=false'
+    'Boxstarter::DevCore::git=false'
+    'Boxstarter::DevCore::TelnetClient=false'
 
     'Boxstarter::Tools::office365proplus=false'
     'Boxstarter::Tools::7zip=false'
     'Boxstarter::Tools::flashplayer=false'
-    'Boxstarter::Tools::filezilla=false'
     'Boxstarter::Tools::jre8=false'
     'Boxstarter::Tools::greenshot=false'
     'Boxstarter::Tools::slack=false'
-    'Boxstarter::Tools::vlc=false'
+    'Boxstarter::Tools::google-backup=false'
+    'Boxstarter::Tools::nzbget=false'
+    'Boxstarter::Tools::filezilla=false'
+    'Boxstarter::Tools::treesizefree=false'
 
-    'Boxstarter::HyperV::Sandbox=false'
+    'Boxstarter::Tools::googlechrome=false'
+    'Boxstarter::Tools::nvidiadriver=false'
+
+    'Boxstarter::DevCore::fonts=false'
 )
 
 # Download my boxstarter bootstrap

@@ -30,7 +30,7 @@ if(Confirm-Install 'Boxstarter::Tools::cmder')
 }
 
 #--- Enable Telnet
-Install-ChocoWindowsFeature 'TelnetClient'
+if(Confirm-Install 'Boxstarter::DevCore::TelnetClient')    { Install-ChocoWindowsFeature 'TelnetClient' }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #  Visual studio code : https://code.visualstudio.com/
