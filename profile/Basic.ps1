@@ -209,6 +209,13 @@ if(Confirm-Install 'Boxstarter::Basic::UI')
 	DisableF1HelpKey                # EnableF1HelpKey
 }
 
+if(Confirm-Install 'Boxstarter::Advanced::Notebook::UI')
+{
+    Write-BoxstarterMessage "Updating UI settings..."
+
+    DisableLockScreen               # EnableLockScreen
+}
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #    UI preferences
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
