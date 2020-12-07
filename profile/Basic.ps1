@@ -29,30 +29,32 @@ if(Confirm-Install 'Boxstarter::Basic::Privacy')
 {
     Write-BoxstarterMessage "Updating Privacy settings..."
 
-    DisableTelemetry                # EnableTelemetry
-    DisableWiFiSense                # EnableWiFiSense
-    # DisableSmartScreen            # EnableSmartScreen
-    DisableWebSearch                # EnableWebSearch
-    DisableAppSuggestions           # EnableAppSuggestions
-    DisableActivityHistory          # EnableActivityHistory
-    # DisableBackgroundApps         # EnableBackgroundApps
-    # DisableSensors                # EnableSensors
-    # DisableLocation               # EnableLocation
-    # DisableMapUpdates             # EnableMapUpdates
-    DisableFeedback                 # EnableFeedback
-    DisableTailoredExperiences      # EnableTailoredExperiences
-    DisableAdvertisingID            # EnableAdvertisingID
-    DisableWebLangList              # EnableWebLangList
-    DisableCortana                  # EnableCortana
-    # DisableBiometrics             # EnableBiometrics
-    # DisableCamera                 # EnableCamera
-    # DisableMicrophone             # EnableMicrophone
-    DisableErrorReporting           # EnableErrorReporting
-    # SetP2PUpdateLocal             # SetP2PUpdateInternet          # SetP2PUpdateDisable
-    DisableDiagTrack                # EnableDiagTrack
-    DisableWAPPush                  # EnableWAPPush
-    # EnableClearRecentFiles        # DisableClearRecentFiles
-    # DisableRecentFiles            # EnableRecentFiles
+    ### Privacy Tweaks ###
+	DisableTelemetry                # EnableTelemetry
+	DisableCortana                  # EnableCortana
+	DisableWiFiSense                # EnableWiFiSense
+	# DisableSmartScreen            # EnableSmartScreen
+	DisableWebSearch                # EnableWebSearch
+	DisableAppSuggestions           # EnableAppSuggestions
+	DisableActivityHistory          # EnableActivityHistory
+														
+	# DisableSensors                # EnableSensors
+	DisableLocation                 # EnableLocation
+	DisableMapUpdates               # EnableMapUpdates
+	DisableFeedback                 # EnableFeedback
+	DisableTailoredExperiences      # EnableTailoredExperiences
+	DisableAdvertisingID            # EnableAdvertisingID
+	DisableWebLangList              # EnableWebLangList
+												
+	# DisableBiometrics             # EnableBiometrics
+	DisableCamera                   # EnableCamera
+	# DisableMicrophone             # EnableMicrophone
+	DisableErrorReporting           # EnableErrorReporting
+	SetP2PUpdateLocal             	# SetP2PUpdateInternet          # SetP2PUpdateDisable
+	DisableDiagTrack                # EnableDiagTrack
+	DisableWAPPush                  # EnableWAPPush
+	# EnableClearRecentFiles        # DisableClearRecentFiles
+	# DisableRecentFiles            # EnableRecentFiles
 }
 
 if(Confirm-Install 'Boxstarter::Basic::PC::Privacy')
@@ -69,25 +71,26 @@ if(Confirm-Install 'Boxstarter::Basic::Security')
 {
     Write-BoxstarterMessage "Updating Security settings..."
 
-    # SetUACLow                     # SetUACHigh
-    # EnableSharingMappedDrives     # DisableSharingMappedDrives
-    DisableAdminShares              # EnableAdminShares
-    # DisableFirewall               # EnableFirewall
-    # HideDefenderTrayIcon          # ShowDefenderTrayIcon
-    # DisableDefender               # EnableDefender
-    # DisableDefenderCloud          # EnableDefenderCloud
-    # EnableCtrldFolderAccess       # DisableCtrldFolderAccess
-    # EnableCIMemoryIntegrity       # DisableCIMemoryIntegrity
-    # EnableDefenderAppGuard        # DisableDefenderAppGuard
-    HideAccountProtectionWarn       # ShowAccountProtectionWarn
-    # DisableDownloadBlocking       # EnableDownloadBlocking
-    # DisableScriptHost             # EnableScriptHost
-    # EnableDotNetStrongCrypto      # DisableDotNetStrongCrypto
-    # EnableMeltdownCompatFlag      # DisableMeltdownCompatFlag
-    # EnableF8BootMenu              # DisableF8BootMenu
-    # DisableBootRecovery           # EnableBootRecovery
-    # DisableRecoveryAndReset       # EnableRecoveryAndReset
-    # SetDEPOptOut                  # SetDEPOptIn
+	### Security Tweaks ###
+	# SetUACLow                     # SetUACHigh
+	# EnableSharingMappedDrives     # DisableSharingMappedDrives
+	DisableAdminShares              # EnableAdminShares
+	# DisableFirewall               # EnableFirewall
+	# HideDefenderTrayIcon          # ShowDefenderTrayIcon
+	# DisableDefender               # EnableDefender
+	# DisableDefenderCloud          # EnableDefenderCloud
+	# EnableCtrldFolderAccess       # DisableCtrldFolderAccess
+	# EnableCIMemoryIntegrity       # DisableCIMemoryIntegrity
+	# EnableDefenderAppGuard        # DisableDefenderAppGuard
+	HideAccountProtectionWarn       # ShowAccountProtectionWarn
+	# DisableDownloadBlocking       # EnableDownloadBlocking
+	# DisableScriptHost             # EnableScriptHost
+	# EnableDotNetStrongCrypto      # DisableDotNetStrongCrypto
+	# EnableMeltdownCompatFlag      # DisableMeltdownCompatFlag
+	# EnableF8BootMenu              # DisableF8BootMenu
+	# DisableBootRecovery           # EnableBootRecovery
+	# DisableRecoveryAndReset       # EnableRecoveryAndReset
+	# SetDEPOptOut                  # SetDEPOptIn
 }
 
 
@@ -98,24 +101,26 @@ if(Confirm-Install 'Boxstarter::Basic::Network')
 {
     Write-BoxstarterMessage "Updating Network settings..."
 
-    SetCurrentNetworkPrivate        # SetCurrentNetworkPublic
-    # SetUnknownNetworksPrivate     # SetUnknownNetworksPublic
-    # DisableNetDevicesAutoInst     # EnableNetDevicesAutoInst
-    # DisableHomeGroups             # EnableHomeGroups
-    # DisableSMB1                   # EnableSMB1
-    # DisableSMBServer              # EnableSMBServer
-    # DisableNetBIOS                # EnableNetBIOS
-    # DisableLLMNR                  # EnableLLMNR
-    # DisableLLDP                   # EnableLLDP
-    # DisableLLTD                   # EnableLLTD
-    # DisableMSNetClient            # EnableMSNetClient
-    # DisableQoS                    # EnableQoS
-    # DisableIPv4                   # EnableIPv4
-    # DisableIPv6                   # EnableIPv6
-    # DisableNCSIProbe              # EnableNCSIProbe
-    # DisableConnectionSharing      # EnableConnectionSharing
-    DisableRemoteAssistance         # EnableRemoteAssistance
-    # EnableRemoteDesktop           # DisableRemoteDesktop
+    ### Network Tweaks ###
+	SetCurrentNetworkPrivate        # SetCurrentNetworkPublic
+	# SetUnknownNetworksPrivate     # SetUnknownNetworksPublic
+	# DisableNetDevicesAutoInst     # EnableNetDevicesAutoInst
+	# DisableHomeGroups             # EnableHomeGroups
+	# DisableSMB1                   # EnableSMB1
+	# DisableSMBServer              # EnableSMBServer
+	# DisableNetBIOS                # EnableNetBIOS
+	# DisableLLMNR                  # EnableLLMNR
+	# DisableLLDP                   # EnableLLDP
+	# DisableLLTD                   # EnableLLTD
+	# DisableMSNetClient            # EnableMSNetClient
+	# DisableQoS                    # EnableQoS
+	# DisableIPv4                   # EnableIPv4
+	# DisableIPv6                   # EnableIPv6
+	# DisableNCSIProbe              # EnableNCSIProbe
+	# DisableConnectionSharing      # EnableConnectionSharing
+	DisableRemoteAssistance         # EnableRemoteAssistance
+	# EnableRemoteDesktop           # DisableRemoteDesktop
+
 }
 
 
@@ -126,31 +131,33 @@ if(Confirm-Install 'Boxstarter::Basic::Service')
 {
     Write-BoxstarterMessage "Updating Service settings..."
 
-    # DisableUpdateMSRT             # EnableUpdateMSRT
-    # DisableUpdateDriver           # EnableUpdateDriver
-    EnableUpdateMSProducts          # DisableUpdateMSProducts
-    # DisableUpdateAutoDownload     # EnableUpdateAutoDownload
-    DisableUpdateRestart            # EnableUpdateRestart
-    DisableMaintenanceWakeUp        # EnableMaintenanceWakeUp
-    DisableSharedExperiences        # EnableSharedExperiences
-    # EnableClipboardHistory        # DisableClipboardHistory
-    DisableAutoplay                 # EnableAutoplay
-    DisableAutorun                  # EnableAutorun
-    # DisableRestorePoints          # EnableRestorePoints
-    EnableStorageSense              # DisableStorageSense
-    DisableDefragmentation          # EnableDefragmentation
-    # DisableSuperfetch             # EnableSuperfetch
-    # DisableIndexing               # EnableIndexing
-    # DisableSwapFile               # EnableSwapFile
-    # DisableRecycleBin             # EnableRecycleBin
-    EnableNTFSLongPaths             # DisableNTFSLongPaths
-    # DisableNTFSLastAccess         # EnableNTFSLastAccess
-    # SetBIOSTimeUTC                # SetBIOSTimeLocal
-    # EnableHibernation             # DisableHibernation
-    # DisableSleepButton            # EnableSleepButton
-    # DisableSleepTimeout           # EnableSleepTimeout
-    # DisableFastStartup            # EnableFastStartup
-    # DisableAutoRebootOnCrash      # EnableAutoRebootOnCrash
+    ### Service Tweaks ###
+	# DisableUpdateMSRT             # EnableUpdateMSRT
+	# DisableUpdateDriver           # EnableUpdateDriver
+	EnableUpdateMSProducts          # DisableUpdateMSProducts
+	# DisableUpdateAutoDownload     # EnableUpdateAutoDownload
+	DisableUpdateRestart            # EnableUpdateRestart
+	DisableMaintenanceWakeUp        # EnableMaintenanceWakeUp
+	# DisableAutoRestartSignOn      # EnableAutoRestartSignOn
+	DisableSharedExperiences        # EnableSharedExperiences
+	# EnableClipboardHistory        # DisableClipboardHistory
+	DisableAutoplay                 # EnableAutoplay
+	DisableAutorun                  # EnableAutorun
+	# DisableRestorePoints          # EnableRestorePoints
+	# EnableStorageSense            # DisableStorageSense
+	DisableDefragmentation        # EnableDefragmentation
+	# DisableSuperfetch             # EnableSuperfetch
+	# DisableIndexing               # EnableIndexing
+													
+	# DisableRecycleBin             # EnableRecycleBin
+	EnableNTFSLongPaths             # DisableNTFSLongPaths
+	# DisableNTFSLastAccess         # EnableNTFSLastAccess
+	# SetBIOSTimeUTC                # SetBIOSTimeLocal
+	# EnableHibernation             # DisableHibernation
+	# DisableSleepButton            # EnableSleepButton
+	# DisableSleepTimeout           # EnableSleepTimeout
+	# DisableFastStartup            # EnableFastStartup
+	# DisableAutoRebootOnCrash      # EnableAutoRebootOnCrash
 }
 
 
@@ -161,42 +168,45 @@ if(Confirm-Install 'Boxstarter::Basic::UI')
 {
     Write-BoxstarterMessage "Updating UI settings..."
 
-    # DisableActionCenter           # EnableActionCenter
-    # DisableLockScreen             # EnableLockScreen
-    # DisableLockScreenRS1          # EnableLockScreenRS1
-    HideNetworkFromLockScreen       # ShowNetworkOnLockScreen
-    # HideShutdownFromLockScreen    # ShowShutdownOnLockScreen
-    # DisableLockScreenBlur         # EnableLockScreenBlur
-    DisableAeroShake                # EnableAeroShake
-    DisableAccessibilityKeys        # EnableAccessibilityKeys
-    ShowTaskManagerDetails          # HideTaskManagerDetails
-    ShowFileOperationsDetails       # HideFileOperationsDetails
-    # EnableFileDeleteConfirm       # DisableFileDeleteConfirm
-    # HideTaskbarSearch             # ShowTaskbarSearchIcon         # ShowTaskbarSearchBox
-    HideTaskView                    # ShowTaskView
-    # ShowSmallTaskbarIcons         # ShowLargeTaskbarIcons
-    # SetTaskbarCombineWhenFull     # SetTaskbarCombineNever        # SetTaskbarCombineAlways
-    HideTaskbarPeopleIcon           # ShowTaskbarPeopleIcon
-    # ShowTrayIcons                 # HideTrayIcons
-    # ShowSecondsInTaskbar          # HideSecondsFromTaskbar
-    DisableSearchAppInStore         # EnableSearchAppInStore
-    # DisableNewAppPrompt           # EnableNewAppPrompt
-    # HideRecentlyAddedApps         # ShowRecentlyAddedApps
-    # HideMostUsedApps              # ShowMostUsedApps
-    # SetControlPanelSmallIcons     # SetControlPanelLargeIcons     # SetControlPanelCategories
-    DisableShortcutInName           # EnableShortcutInName
-    # HideShortcutArrow             # ShowShortcutArrow
-    # SetVisualFXPerformance        # SetVisualFXAppearance
-    # EnableTitleBarColor           # DisableTitleBarColor
-    # EnableDarkTheme               # DisableDarkTheme
-    # AddENKeyboard                 # RemoveENKeyboard
-    # EnableNumlock                 # DisableNumlock
-    # DisableEnhPointerPrecision    # EnableEnhPointerPrecision
-    SetSoundSchemeNone              # SetSoundSchemeDefault
-    # DisableStartupSound           # EnableStartupSound
-    # DisableChangingSoundScheme    # EnableChangingSoundScheme
-    # EnableVerboseStatus           # DisableVerboseStatus
-    DisableF1HelpKey                # EnableF1HelpKey
+    ### UI Tweaks ###
+	# DisableActionCenter             # EnableActionCenter
+	# DisableLockScreen               # EnableLockScreen
+	# DisableLockScreenRS1          # EnableLockScreenRS1
+	HideNetworkFromLockScreen       # ShowNetworkOnLockScreen
+	# HideShutdownFromLockScreen      # ShowShutdownOnLockScreen
+	# DisableLockScreenBlur           # EnableLockScreenBlur
+	DisableAeroShake              # EnableAeroShake
+	DisableAccessibilityKeys        # EnableAccessibilityKeys
+	ShowTaskManagerDetails          # HideTaskManagerDetails
+	ShowFileOperationsDetails       # HideFileOperationsDetails
+	# EnableFileDeleteConfirm       # DisableFileDeleteConfirm
+	# HideTaskbarSearch               # ShowTaskbarSearchIcon         # ShowTaskbarSearchBox
+	# HideTaskView                    # ShowTaskView
+	# ShowSmallTaskbarIcons           # ShowLargeTaskbarIcons
+	# SetTaskbarCombineWhenFull       # SetTaskbarCombineNever        # SetTaskbarCombineAlways
+	HideTaskbarPeopleIcon           # ShowTaskbarPeopleIcon
+	# ShowTrayIcons                   # HideTrayIcons
+	# ShowSecondsInTaskbar          # HideSecondsFromTaskbar
+	DisableSearchAppInStore         # EnableSearchAppInStore
+	# DisableNewAppPrompt             # EnableNewAppPrompt
+	# HideRecentlyAddedApps         # ShowRecentlyAddedApps
+	# HideMostUsedApps              # ShowMostUsedApps
+	# SetWinXMenuPowerShell         # SetWinXMenuCmd
+	# SetControlPanelSmallIcons     # SetControlPanelLargeIcons     # SetControlPanelCategories
+	DisableShortcutInName           # EnableShortcutInName
+	# HideShortcutArrow             # ShowShortcutArrow
+	# SetVisualFXPerformance          # SetVisualFXAppearance
+	# EnableTitleBarColor           # DisableTitleBarColor
+	# SetAppsDarkMode               # SetAppsLightMode
+	# SetSystemLightMode            # SetSystemDarkMode
+	# AddENKeyboard                 # RemoveENKeyboard
+	# EnableNumlock                 # DisableNumlock
+	# DisableEnhPointerPrecision    # EnableEnhPointerPrecision
+	SetSoundSchemeNone            # SetSoundSchemeDefault
+	# DisableStartupSound           # EnableStartupSound
+	# DisableChangingSoundScheme    # EnableChangingSoundScheme
+	# EnableVerboseStatus           # DisableVerboseStatus
+	DisableF1HelpKey                # EnableF1HelpKey
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -206,49 +216,53 @@ if(Confirm-Install 'Boxstarter::Basic::UI-Preferences')
 {
     Write-BoxstarterMessage "Updating UI preferences..."
 
-    # ShowExplorerTitleFullPath     # HideExplorerTitleFullPath
-    ShowKnownExtensions             # HideKnownExtensions
-    # ShowHiddenFiles               # HideHiddenFiles
-    # ShowSuperHiddenFiles          # HideSuperHiddenFiles
-    # ShowEmptyDrives               # HideEmptyDrives
-    # ShowFolderMergeConflicts      # HideFolderMergeConflicts
-    # EnableNavPaneExpand           # DisableNavPaneExpand
-    # ShowNavPaneAllFolders         # HideNavPaneAllFolders
-    # EnableFldrSeparateProcess     # DisableFldrSeparateProcess
-    # EnableRestoreFldrWindows      # DisableRestoreFldrWindows
-    # ShowEncCompFilesColor         # HideEncCompFilesColor
-    DisableSharingWizard            # EnableSharingWizard
-    # HideSelectCheckboxes          # ShowSelectCheckboxes
-    HideSyncNotifications           # ShowSyncNotifications
-    # HideRecentShortcuts           # ShowRecentShortcuts
-    SetExplorerThisPC               # SetExplorerQuickAccess
-    # HideQuickAccess               # ShowQuickAccess
-    # HideRecycleBinFromDesktop     # ShowRecycleBinOnDesktop
-    # ShowThisPCOnDesktop           # HideThisPCFromDesktop
-    # ShowUserFolderOnDesktop       # HideUserFolderFromDesktop
-    # ShowControlPanelOnDesktop     # HideControlPanelFromDesktop
-    # ShowNetworkOnDesktop          # HideNetworkFromDesktop
-    # ShowBuildNumberOnDesktop      # HideBuildNumberFromDesktop
-    # HideDesktopFromThisPC         # ShowDesktopInThisPC
-    # HideDesktopFromExplorer       # ShowDesktopInExplorer
-    # HideDocumentsFromThisPC       # ShowDocumentsInThisPC
-    # HideDocumentsFromExplorer     # ShowDocumentsInExplorer
-    # HideDownloadsFromThisPC       # ShowDownloadsInThisPC
-    # HideDownloadsFromExplorer     # ShowDownloadsInExplorer
-    # HideMusicFromThisPC           # ShowMusicInThisPC
-    # HideMusicFromExplorer         # ShowMusicInExplorer
-    # HidePicturesFromThisPC        # ShowPicturesInThisPC
-    # HidePicturesFromExplorer      # ShowPicturesInExplorer
-    HideVideosFromThisPC            # ShowVideosInThisPC
-    # HideVideosFromExplorer        # ShowVideosInExplorer
-    Hide3DObjectsFromThisPC         # Show3DObjectsInThisPC
-    Hide3DObjectsFromExplorer       # Show3DObjectsInExplorer
-    HideIncludeInLibraryMenu        # ShowIncludeInLibraryMenu
-    HideGiveAccessToMenu            # ShowGiveAccessToMenu
-    HideShareMenu                   # ShowShareMenu
-    # DisableThumbnails             # EnableThumbnails
-    # DisableThumbnailCache         # EnableThumbnailCache
-    # DisableThumbsDBOnNetwork      # EnableThumbsDBOnNetwork
+    ### Explorer UI Tweaks ###
+	# ShowExplorerTitleFullPath     # HideExplorerTitleFullPath
+	ShowKnownExtensions             # HideKnownExtensions
+	# ShowHiddenFiles                 # HideHiddenFiles
+	# ShowSuperHiddenFiles          # HideSuperHiddenFiles
+	# ShowEmptyDrives               # HideEmptyDrives
+	# ShowFolderMergeConflicts      # HideFolderMergeConflicts
+	# EnableNavPaneExpand             # DisableNavPaneExpand
+	# ShowNavPaneAllFolders         # HideNavPaneAllFolders
+	# ShowNavPaneLibraries          # HideNavPaneLibraries
+	# EnableFldrSeparateProcess     # DisableFldrSeparateProcess
+	# EnableRestoreFldrWindows      # DisableRestoreFldrWindows
+	# ShowEncCompFilesColor         # HideEncCompFilesColor
+	DisableSharingWizard          # EnableSharingWizard
+	# HideSelectCheckboxes          # ShowSelectCheckboxes
+	HideSyncNotifications           # ShowSyncNotifications
+	# HideRecentShortcuts             # ShowRecentShortcuts
+	SetExplorerThisPC               # SetExplorerQuickAccess
+	# HideQuickAccess                 # ShowQuickAccess
+	# HideRecycleBinFromDesktop     # ShowRecycleBinOnDesktop
+	# ShowThisPCOnDesktop             # HideThisPCFromDesktop
+	ShowUserFolderOnDesktop       # HideUserFolderFromDesktop
+	# ShowControlPanelOnDesktop     # HideControlPanelFromDesktop
+	# ShowNetworkOnDesktop          # HideNetworkFromDesktop
+	# HideDesktopIcons              # ShowDesktopIcons
+	# ShowBuildNumberOnDesktop      # HideBuildNumberFromDesktop
+	HideDesktopFromThisPC           # ShowDesktopInThisPC
+	# HideDesktopFromExplorer       # ShowDesktopInExplorer
+	HideDocumentsFromThisPC         # ShowDocumentsInThisPC
+	# HideDocumentsFromExplorer     # ShowDocumentsInExplorer
+	HideDownloadsFromThisPC         # ShowDownloadsInThisPC
+	# HideDownloadsFromExplorer     # ShowDownloadsInExplorer
+	HideMusicFromThisPC             # ShowMusicInThisPC
+	# HideMusicFromExplorer         # ShowMusicInExplorer
+	HidePicturesFromThisPC          # ShowPicturesInThisPC
+	# HidePicturesFromExplorer      # ShowPicturesInExplorer
+	HideVideosFromThisPC            # ShowVideosInThisPC
+	# HideVideosFromExplorer        # ShowVideosInExplorer
+	Hide3DObjectsFromThisPC         # Show3DObjectsInThisPC
+	Hide3DObjectsFromExplorer     # Show3DObjectsInExplorer
+	# HideNetworkFromExplorer       # ShowNetworkInExplorer
+	HideIncludeInLibraryMenu      # ShowIncludeInLibraryMenu
+	HideGiveAccessToMenu          # ShowGiveAccessToMenu
+	HideShareMenu                 # ShowShareMenu
+	# DisableThumbnails             # EnableThumbnails
+	# DisableThumbnailCache           # EnableThumbnailCache
+	# DisableThumbsDBOnNetwork        # EnableThumbsDBOnNetwork
 }
 
 
@@ -259,32 +273,41 @@ if(Confirm-Install 'Boxstarter::Basic::Application')
 {
     Write-BoxstarterMessage "Updating Application preferences..."
 
-    # DisableOneDrive               # EnableOneDrive
-    # UninstallOneDrive             # InstallOneDrive
-    # UninstallMsftBloat            # InstallMsftBloat
-    UninstallThirdPartyBloat        # InstallThirdPartyBloat
-    # UninstallWindowsStore         # InstallWindowsStore
-    # DisableXboxFeatures           # EnableXboxFeatures
-    # DisableFullscreenOptims       # EnableFullscreenOptims
-    # DisableAdobeFlash             # EnableAdobeFlash
-    DisableEdgePreload              # EnableEdgePreload
-    DisableEdgeShortcutCreation     # EnableEdgeShortcutCreation
-    DisableIEFirstRun               # EnableIEFirstRun
-    DisableFirstLogonAnimation      # EnableFirstLogonAnimation
-    DisableMediaSharing             # EnableMediaSharing
-    # UninstallMediaPlayer          # InstallMediaPlayer
-    # UninstallInternetExplorer     # InstallInternetExplorer
-    UninstallWorkFolders            # InstallWorkFolders
-    # UninstallPowerShellV2         # InstallPowerShellV2
-    # InstallLinuxSubsystem         # UninstallLinuxSubsystem
-    # InstallHyperV                 # UninstallHyperV
-    # InstallNET23                  # UninstallNET23
-    SetPhotoViewerAssociation       # UnsetPhotoViewerAssociation
-    AddPhotoViewerOpenWith          # RemovePhotoViewerOpenWith
-    # UninstallPDFPrinter           # InstallPDFPrinter
-    UninstallXPSPrinter             # InstallXPSPrinter
-    RemoveFaxPrinter                # AddFaxPrinter
-    # UninstallFaxAndScan           # InstallFaxAndScan
+    ### Application Tweaks ###
+	# DisableOneDrive                 # EnableOneDrive
+	# UninstallOneDrive               # InstallOneDrive
+	# UninstallMsftBloat              # InstallMsftBloat
+	UninstallThirdPartyBloat        # InstallThirdPartyBloat
+	# UninstallWindowsStore         # InstallWindowsStore
+	# DisableXboxFeatures             # EnableXboxFeatures
+	# DisableFullscreenOptims       # EnableFullscreenOptims
+	# DisableAdobeFlash               # EnableAdobeFlash
+	DisableEdgePreload              # EnableEdgePreload
+	DisableEdgeShortcutCreation     # EnableEdgeShortcutCreation
+	DisableIEFirstRun               # EnableIEFirstRun
+	DisableFirstLogonAnimation      # EnableFirstLogonAnimation
+	DisableMediaSharing             # EnableMediaSharing
+	# DisableMediaOnlineAccess      # EnableMediaOnlineAccess
+	# EnableDeveloperMode           # DisableDeveloperMode
+	# UninstallMediaPlayer          # InstallMediaPlayer
+	# UninstallInternetExplorer     # InstallInternetExplorer
+	UninstallWorkFolders          # InstallWorkFolders
+	# UninstallHelloFace            # InstallHelloFace
+	# UninstallMathRecognizer       # InstallMathRecognizer
+	# UninstallPowerShellV2         # InstallPowerShellV2
+	# UninstallPowerShellISE        # InstallPowerShellISE
+	# InstallLinuxSubsystem         # UninstallLinuxSubsystem
+	# InstallHyperV                 # UninstallHyperV
+	# UninstallSSHClient            # InstallSSHClient
+	# InstallSSHServer              # UninstallSSHServer
+	# InstallTelnetClient           # UninstallTelnetClient
+	# InstallNET23                  # UninstallNET23
+	SetPhotoViewerAssociation       # UnsetPhotoViewerAssociation
+	AddPhotoViewerOpenWith          # RemovePhotoViewerOpenWith
+	# UninstallPDFPrinter           # InstallPDFPrinter
+	UninstallXPSPrinter             # InstallXPSPrinter
+	RemoveFaxPrinter                # AddFaxPrinter
+	# UninstallFaxAndScan           # InstallFaxAndScan
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
